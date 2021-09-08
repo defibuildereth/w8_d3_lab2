@@ -13,6 +13,7 @@ const HotelContainer = function() {
     } 
 
     const handleEmailChange = function(event) {
+        console.log(event.target.value)
         setEmail(event.target.value)
     }
 
