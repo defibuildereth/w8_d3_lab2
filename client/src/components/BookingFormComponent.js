@@ -1,19 +1,20 @@
 import React from 'react';
 
 
-const BookingFormComponent = function({name, email, checkedIn, handleNameChange, handleEmailChange, handleCheckedIn}) {
+const BookingFormComponent = function({handleChange, handleSubmitForm, formData}) {
     
 
     return (
         <>
         <h1>I'm the BookingFormComponent</h1>
-        <form>
+        <form onSubmit={handleSubmitForm}>
             <label for='name'>Input Name: </label>
-            <input type="text" id="name" value={name} onChange={handleNameChange} required/>
+            <input type="text" id="name" value={formData.name} onChange={handleChange} required/>
             <label for= 'email'>Input Email: </label>
-            <input type="text" id="name" value={email} onChange={handleEmailChange} required/>
+            <input type="text" id="name" value={formData.email} onChange={handleChange} required/>
             <label for='checkedIn'>Are you checked in? </label>
-            <input type='checkbox' id='checkedIn' value={checkedIn} onClick={handleCheckedIn}/>
+            <input type='checkbox' id='checkedIn' value={formData.checkedIn} onClick={handleChange}/>
+            <input type='submit' value='Submit'/> 
         </form>
         </>
     )

@@ -1,40 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import BookingFormComponent from '../components/BookingFormComponent';
 import BookingResultComponent from '../components/BookingsResultComponent';
+import BookingService from '../services/BookingService';
 
 const HotelContainer = function() {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [checkedIn, setCheckedIn] = useState(false)
+    const [formData, setFormData] = useState({})
 
-    useEffect(() => {
-        setCheckedIn();
-        console.log(checkedIn)
-    },[])
- 
-    const handleNameChange = function(event) {
-        console.log(event.target.value)
-        setName(event.target.value)
-    } 
-
-    const handleEmailChange = function(event) {
-        console.log(event.target.value)
-        setEmail(event.target.value)
+    const handleChange = function(event) {
+        formData[event.target.id] = event.target.value
+        console.log(event)
     }
 
-    const handleCheckedIn = function(event) {
-        // console.log(event);
-        if (checkedIn){
-            setCheckedIn(false)
-        } else {setCheckedIn(true)}
-        console.log(`Checked in? ${event.target.value}`)
-
+    const handleSubmitForm = function(event) {
+        console.log(event.target.value);
     }
 
     return (
         <>
         <h1>I'm the HotelContainer</h1>
-        <BookingFormComponent name={name} email={email} checkedIn={checkedIn} handleNameChange={handleNameChange} handleEmailChange={handleEmailChange} handleCheckedIn={handleCheckedIn}/>
+        <BookingFormComponent handleChange={handleChange} handleSubmitForm={handleSubmitForm} formData={formData}/>
         <BookingResultComponent/>
         </>
     )
