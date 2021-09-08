@@ -7,6 +7,11 @@ const HotelContainer = function() {
     const [email, setEmail] = useState('')
     const [checkedIn, setCheckedIn] = useState(false)
 
+    useEffect(() => {
+        setCheckedIn();
+        console.log(checkedIn)
+    },[])
+ 
     const handleNameChange = function(event) {
         console.log(event.target.value)
         setName(event.target.value)
@@ -18,7 +23,12 @@ const HotelContainer = function() {
     }
 
     const handleCheckedIn = function(event) {
-        setCheckedIn(event.target.value)
+        // console.log(event);
+        if (checkedIn){
+            setCheckedIn(false)
+        } else {setCheckedIn(true)}
+        console.log(`Checked in? ${event.target.value}`)
+
     }
 
     return (

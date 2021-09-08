@@ -12,7 +12,8 @@ const BookingFormComponent = function({name, email, checkedIn, handleNameChange,
             <input type="text" id="name" value={name} onChange={handleNameChange} required/>
             <label for= 'email'>Input Email: </label>
             <input type="text" id="name" value={email} onChange={handleEmailChange} required/>
-            
+            <label for='checkedIn'>Are you checked in? </label>
+            <input type='checkbox' id='checkedIn' value={checkedIn} onClick={handleCheckedIn}/>
         </form>
         </>
     )
